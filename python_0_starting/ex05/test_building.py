@@ -31,17 +31,20 @@ def test_only_spaces():
 
 def test_only_punctuation():
     result = count_types("!@#")
-    assert result == {"punctuation": 3}, f"expected punctuation:3, got {result}"
+    assert result == {"punctuation": 3}, f"expected punctuation:3, \
+    got {result}"
 
 
 def test_tabs_count_as_spaces():
     result = count_types("\t\t")
-    assert result == {"spaces": 2}, f"tabs should count as spaces, got {result}"
+    assert result == {"spaces": 2}, f"tabs should count as spaces, \
+    got {result}"
 
 
 def test_newlines_count_as_spaces():
     result = count_types("\n\n")
-    assert result == {"spaces": 2}, f"newlines should count as spaces, got {result}"
+    assert result == {"spaces": 2}, f"newlines should count as spaces, \
+    got {result}"
 
 
 def test_mixed_text():

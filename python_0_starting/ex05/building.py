@@ -6,15 +6,18 @@ def validate_arguments(arguments: list[str]) -> str:
     """
     Validate and process command line arguments for text analysis.
 
-    If no arguments are provided or an empty argument is given, prompts the user
-    to input text interactively. Handles EOF (Ctrl+D) and KeyboardInterrupt (Ctrl+C)
+    If no arguments are provided or an empty argument is given,
+    prompts the user
+    to input text interactively.
+    Handles EOF (Ctrl+D) and KeyboardInterrupt (Ctrl+C)
     gracefully by returning an empty string.
 
     Args:
         arguments (list[str]): List of command line arguments (sys.argv[1:])
 
     Returns:
-        str: The text to be analyzed. Returns empty string if user presses Ctrl+D
+        str: The text to be analyzed.
+        Returns empty string if user presses Ctrl+D
         or Ctrl+C
 
     Raises:
@@ -52,7 +55,8 @@ def count_types(text: str) -> dict[str, int]:
         text (str): The text to analyze
 
     Returns:
-        dict[str, int]: Dictionary mapping character type names to their counts.
+        dict[str, int]: Dictionary mapping
+                       character type names to their counts.
                        Only includes types that have at least one occurrence.
 
     Example:
