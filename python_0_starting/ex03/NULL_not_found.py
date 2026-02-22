@@ -1,10 +1,7 @@
 import math
 
-from Utils import Utils
-
 
 def NULL_not_found(object: any) -> int:
-    Utils().check_version()
     obj_type = type(object)
 
     if object is None:

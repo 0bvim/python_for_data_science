@@ -1,5 +1,3 @@
-from Utils import Utils
-
 ft_list = ["Hello", "World!"]
 ft_tuple = ("Hello", "Brazil!")
 ft_set = {"Hello", "São Paulo!"}
@@ -10,7 +8,6 @@ ft_dict = {"Hello": "42SP!"}
 ordered_set = sorted(ft_set)
 
 if __name__ == "__main__":
-    Utils().check_version()
 
     print(ft_list)
     print(ft_tuple)

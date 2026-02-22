@@ -1,8 +1,4 @@
-from Utils import Utils
-
-
 def all_thing_is_obj(object: any) -> int:
-    Utils().check_version()
     obj_type = type(object)
     type_name = obj_type.__name__
 
