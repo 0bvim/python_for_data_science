@@ -35,8 +35,8 @@ def _build_bar(frac: float, bar_width: int) -> str:
     if filled <= 0:
         return " " * bar_width
     if filled < bar_width:
-        return "=" * (filled - 1) + ">" + " " * (bar_width - filled)
-    return "=" * bar_width
+        return "█" * (filled - 1) + ">" + " " * (bar_width - filled)
+    return "█" * bar_width
 
 
 def _get_cols() -> int:
@@ -120,7 +120,7 @@ def ft_tqdm(lst: range) -> None:
                      f" [{elapsed_s}<{_format_time(0)}, {rate:.2f}it/s]")
             cols = _get_cols()
             bar_width = max(10, cols - len(left) - len(right))
-            bar = "=" * bar_width
+            bar = "█" * bar_width
             stats = left + bar + right
             if len(stats) < prev_len:
                 stats = stats + " " * (prev_len - len(stats))

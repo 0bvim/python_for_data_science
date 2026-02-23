@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ft_package"
+version = "0.1.0"
+description = "A simple Python package"
+authors = [{name = "Vinicius Pereira", email = "vde-frei@student.42sp.org.br"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "build>=1.4.0",
+]
