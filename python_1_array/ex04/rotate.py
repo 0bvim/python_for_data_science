@@ -25,7 +25,7 @@ def main() -> None:
     - The manual transpose via Python loops is intentionally explicit for demonstration.
       For production code with NumPy arrays, using transposed_array = zoomed_array[:, :, 0].T
       or np.transpose would be more concise and faster.
-    """
+    """  # noqa
     image_path = "animal.jpeg"
     image_array = ft_load(image_path)
 
