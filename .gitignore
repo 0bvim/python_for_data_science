@@ -208,3 +208,6 @@ __marimo__/
 
 # ds
 .DS_Store
+
+# IDE's directory
+.idea
