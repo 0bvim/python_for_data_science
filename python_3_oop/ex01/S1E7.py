@@ -18,14 +18,14 @@ class Baratheon(Character):
         hairs (str): The hair color of the character, default is "dark".
     """
 
-    def __init__(self, first_name: str, is_alive: Optional[bool] = True):
+    def __init__(self, first_name: str, is_alive: Optional[bool] = True) -> None:
         """Initialize a Baratheon instance."""
         super().__init__(first_name, is_alive)
         self.family_name = "Baratheon"
         self.eyes = "brown"
         self.hairs = "dark"
 
-    def die(self):
+    def die(self) -> None:
         """Kill the character."""
         self.health_state()
 
@@ -36,6 +36,7 @@ class Baratheon(Character):
     def __repr__(self):
         """Return a string representation of the Baratheon instance."""
         return super().__repr__()
+
 
 class Lannister(Character):
     """A class representing a member of the Lannister family.
@@ -52,19 +53,19 @@ class Lannister(Character):
         hairs (str): The hair color of the character, which is "light".
     """
 
-    def __init__(self, first_name: str, is_alive: Optional[bool] = True):
+    def __init__(self, first_name: str, is_alive: Optional[bool] = True) -> None:
         """Initialize a Lannister instance."""
         super().__init__(first_name, is_alive)
         self.family_name = "Lannister"
         self.eyes = "blue"
         self.hairs = "light"
 
-    def die(self):
+    def die(self) -> None:
         """Kill the character."""
         self.health_state()
 
     @staticmethod
-    def create_lannister(first_name: str, is_alive: bool = True):
+    def create_lannister(first_name: str, is_alive: bool = True) -> "Lannister":
         """Create a Lannister instance."""
         return Lannister(first_name, is_alive)
 
