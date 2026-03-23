@@ -1,4 +1,16 @@
 def all_thing_is_obj(object: any) -> int:
+    """
+    Identifies the type of object and prints it.
+
+    For basic data structures (list, tuple, set, dict), it prints its
+    internal name and type. For strings, it prints a special message.
+
+    Args:
+        object (any): The object whose type is to be identified.
+
+    Returns:
+        int: Always returns 42.
+    """
     obj_type = type(object)
     type_name = obj_type.__name__
 

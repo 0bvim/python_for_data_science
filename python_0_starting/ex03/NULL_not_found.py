@@ -2,6 +2,22 @@ import math
 
 
 def NULL_not_found(object: any) -> int:
+    """
+    Check if the given object is a "NULL" value and print its type and name.
+
+    NULL values include:
+    - None
+    - math.nan
+    - 0
+    - ""
+    - False
+
+    Args:
+        object (any): The object to check.
+
+    Returns:
+        int: Returns 0 if the object is a recognized NULL value, 1 otherwise.
+    """
     obj_type = type(object)
 
     if object is None:
