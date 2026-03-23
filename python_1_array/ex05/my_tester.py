@@ -56,7 +56,8 @@ def main():
         axes[1, 1].axis("off")
 
         # Figure VIII.6: Grey
-        # We pass cmap='gray' here so Matplotlib knows how to map the single-channel intensity
+        # We pass cmap='gray' here so Matplotlib knows how to map the
+        # single-channel intensity
         axes[1, 2].imshow(img_grey, cmap="gray")
         axes[1, 2].set_title("Figure VIII.6: Grey")
         axes[1, 2].axis("off")

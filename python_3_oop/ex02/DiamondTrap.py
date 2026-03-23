@@ -6,13 +6,15 @@ from S1E7 import Baratheon, Lannister
 class King(Baratheon, Lannister):
     """A class representing a fake King."""
 
-    def __init__(self, first_name: str, is_alive: Optional[bool] = True) -> None:
+    def __init__(self, first_name: str,
+                 is_alive: Optional[bool] = True) -> None:
         """
         Initializes a new instance of the class with given attributes.
 
         Args:
             first_name (str): The first name of the individual.
-            is_alive (Optional[bool]): Status indicating if the individual is alive. Defaults to True.
+            is_alive (Optional[bool]): Status indicating if the individual is
+                alive. Defaults to True.
         """
         super().__init__(first_name, is_alive)
         self.family_name = "Baratheon"
@@ -32,12 +34,13 @@ class King(Baratheon, Lannister):
         """
         Sets the number or type of hairs for the object.
 
-        This method allows the modification or updating of the 'hairs' attribute
-        of the object. It is intended to set a specific number or description of
-        hairs based on the provided input.
+        This method allows the modification or updating of the 'hairs'
+        attribute of the object. It is intended to set a specific number or
+        description of hairs based on the provided input.
 
         Args:
-            hairs (str): The number or description of hairs to set for the object.
+            hairs (str): The number or description of hairs to set for the
+                object.
         """
         self.hairs = hairs
 

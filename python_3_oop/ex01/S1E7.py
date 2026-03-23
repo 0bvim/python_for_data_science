@@ -7,18 +7,21 @@ class Baratheon(Character):
     """
     Represents a member of the Baratheon family.
 
-    The Baratheon class is a subclass of Character, representing individuals belonging to
-    the Baratheon family. Each Baratheon has specific characteristics such as
-    a family name, eye color, and hair color. This class provides functionality to
-    handle the character's death and string representations.
+    The Baratheon class is a subclass of Character, representing
+    individuals belonging to the Baratheon family. Each Baratheon has
+    specific characteristics such as a family name, eye color, and hair
+    color. This class provides functionality to handle the character's
+    death and string representations.
 
     Attributes:
-        family_name (str): The family name of the character, default is "Baratheon".
+        family_name (str): The family name of the character, default is
+            "Baratheon".
         eyes (str): The eye color of the character, default is "brown".
         hairs (str): The hair color of the character, default is "dark".
     """
 
-    def __init__(self, first_name: str, is_alive: Optional[bool] = True) -> None:
+    def __init__(self, first_name: str,
+                 is_alive: Optional[bool] = True) -> None:
         """Initialize a Baratheon instance."""
         super().__init__(first_name, is_alive)
         self.family_name = "Baratheon"
@@ -53,7 +56,8 @@ class Lannister(Character):
         hairs (str): The hair color of the character, which is "light".
     """
 
-    def __init__(self, first_name: str, is_alive: Optional[bool] = True) -> None:
+    def __init__(self, first_name: str,
+                 is_alive: Optional[bool] = True) -> None:
         """Initialize a Lannister instance."""
         super().__init__(first_name, is_alive)
         self.family_name = "Lannister"
@@ -65,7 +69,8 @@ class Lannister(Character):
         self.health_state()
 
     @staticmethod
-    def create_lannister(first_name: str, is_alive: bool = True) -> "Lannister":
+    def create_lannister(first_name: str,
+                         is_alive: bool = True) -> "Lannister":
         """Create a Lannister instance."""
         return Lannister(first_name, is_alive)
 
