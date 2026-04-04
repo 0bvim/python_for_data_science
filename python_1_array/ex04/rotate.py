@@ -1,3 +1,7 @@
+import os
+import subprocess
+import sys
+
 import matplotlib.pyplot as plt
 import numpy as np
 from load_image import ft_load
@@ -28,6 +32,7 @@ def main() -> None:
     """  # noqa
     image_path = "animal.jpeg"
     image_array = ft_load(image_path)
+    file_name = "rotated_animal.png"
 
     zoomed_array = image_array[100:500, 400:800, 0:1]
 
@@ -48,7 +53,27 @@ def main() -> None:
 
     display_array = transposed_array.squeeze()
     plt.imshow(display_array, cmap="gray")
-    plt.show()
+    plt.title("Rotated Animal")
+    plt.savefig(file_name)
+    open_file(file_name)
+
+
+def open_file(file_path: str) -> None:
+    try:
+        if not os.path.exists(file_path):
+            print(f"File not found: {file_path}")
+        else:
+            if sys.platform.startswith("win"):
+                # Windows
+                os.startfile(file_path)
+            elif sys.platform == "darwin":
+                # macOS
+                subprocess.run(["open", file_path], check=False)
+            else:
+                # Linux/Unix (xdg-open is the common tool)
+                subprocess.run(["xdg-open", file_path], check=False)
+    except Exception as e:
+        print(f"Could not open {file_path}: {e}")
 
 
 if __name__ == "__main__":

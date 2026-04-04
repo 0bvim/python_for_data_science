@@ -43,7 +43,6 @@ def main() -> None:
 
 
 def open_file(file_path: str) -> None:
-    file_path = "zoomed_animal.png"
     try:
         if not os.path.exists(file_path):
             print(f"File not found: {file_path}")
