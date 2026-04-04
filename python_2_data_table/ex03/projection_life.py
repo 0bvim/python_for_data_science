@@ -1,3 +1,7 @@
+import os
+import subprocess
+import sys
+
 import matplotlib.pyplot as plt
 import pandas as pd
 from load_csv import load
@@ -23,10 +27,9 @@ def main():
     and displays a scatter plot of life expectancy vs. GNP.
     """
     try:
+        file = "../income_per_person_gdppercapita_ppp_inflation_adjusted.csv"
         life_expect = load("../life_expectancy_years.csv")
-        gdp_data = load(
-            "../income_per_person_gdppercapita_ppp_inflation_adjusted.csv"
-        )
+        gdp_data = load(file)
     except Exception as e:
         print(f"Error loading files: {e}")
         return
@@ -43,9 +46,7 @@ def main():
     income_1900 = gdp_data.set_index("country")[year].apply(parse_income)
 
     # Align data by joining on the country index (this keeps only countries)
-    df_1900 = pd.DataFrame(
-        {"life": life_1900, "income": income_1900}
-    ).dropna()
+    df_1900 = pd.DataFrame({"life": life_1900, "income": income_1900}).dropna()
 
     # Plotting
     plt.figure(figsize=(10, 6))
@@ -58,7 +59,27 @@ def main():
     plt.xticks([300, 1000, 10000], ["300", "1k", "10k"])
 
     plt.tight_layout()
-    plt.show()
+    name = "projection_life.png"
+    plt.savefig(name)
+    open_file(name)
+
+
+def open_file(file_path: str) -> None:
+    try:
+        if not os.path.exists(file_path):
+            print(f"File not found: {file_path}")
+        else:
+            if sys.platform.startswith("win"):
+                # Windows
+                os.startfile(file_path)
+            elif sys.platform == "darwin":
+                # macOS
+                subprocess.run(["open", file_path], check=False)
+            else:
+                # Linux/Unix (xdg-open is the common tool)
+                subprocess.run(["xdg-open", file_path], check=False)
+    except Exception as e:
+        print(f"Could not open {file_path}: {e}")
 
 
 if __name__ == "__main__":
