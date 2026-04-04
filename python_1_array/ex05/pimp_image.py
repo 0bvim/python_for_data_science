@@ -45,9 +45,11 @@ def ft_green(array: np.ndarray) -> np.ndarray:
     green_array = array.copy()
     file_name = "green.png"
 
-    green_array[:, :, 0] = green_array[:, :, 0] - green_array[:, :, 0]  # red becomes 0
+    # red becomes 0
+    green_array[:, :, 0] = green_array[:, :, 0] - green_array[:, :, 0]
 
-    green_array[:, :, 2] = green_array[:, :, 2] - green_array[:, :, 2]  # blue becomes 0
+    # blue becomes 0
+    green_array[:, :, 2] = green_array[:, :, 2] - green_array[:, :, 2]
 
     plt.imshow(green_array)
     plt.title("Green Filter")
