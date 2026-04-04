@@ -1,3 +1,7 @@
+import os
+import subprocess
+import sys
+
 import matplotlib.pyplot as plt
 from load_image import ft_load
 from pimp_image import ft_blue, ft_green, ft_grey, ft_invert, ft_red
@@ -64,10 +68,30 @@ def main():
 
         # Adjust layout so titles don't overlap and display the window
         plt.tight_layout()
-        plt.show()
+        plt.savefig("grid_display.png")
+
+        open_file("grid_display.png")
 
     except Exception as e:
         print(f"An unexpected error occurred in the tester: {e}")
+
+
+def open_file(file_path: str) -> None:
+    try:
+        if not os.path.exists(file_path):
+            print(f"File not found: {file_path}")
+        else:
+            if sys.platform.startswith("win"):
+                # Windows
+                os.startfile(file_path)
+            elif sys.platform == "darwin":
+                # macOS
+                subprocess.run(["open", file_path], check=False)
+            else:
+                # Linux/Unix (xdg-open is the common tool)
+                subprocess.run(["xdg-open", file_path], check=False)
+    except Exception as e:
+        print(f"Could not open {file_path}: {e}")
 
 
 if __name__ == "__main__":
