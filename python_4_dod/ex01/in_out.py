@@ -33,23 +33,33 @@ def pow(x: int | float) -> int | float:
 
 def outer(x: int | float, function) -> object:
     """
-    Applies a given function to a value with a closure maintaining state.
+    Creates a closure that repeatedly applies a function to a value.
 
-    This function returns a closure that, when called, applies the input
-    function to the initial value and updates the value and call count.
-    The closure ensures the state is retained between calls.
+    This function returns an inner function that maintains state through
+    closures. Each call to the inner function applies the given function to
+    the current value of x and increments a counter.
 
     Args:
-        x: The initial value to which the function will be applied. Can be an integer or a float.
-        function: A callable that takes one argument and performs an operation on the provided value.
+        x (int | float): The initial numeric value to be transformed.
+        function: A callable that takes a numeric value and returns a
+            numeric result.
 
     Returns:
-        A closure (inner function) that, when invoked, applies the provided function to the maintained
-        state value and returns the updated value.
+        object: A callable inner function that applies the given function
+            to x and returns the updated value on each invocation.
     """
     count = 0
 
     def inner() -> float:
+        """
+        Applies the outer function's given function to x.
+
+        Increments the call counter and applies the transformation function
+        to the current value of x, updating x with the result.
+
+        Returns:
+            float: The updated value of x after applying the function.
+        """
         nonlocal x
         nonlocal count
 
