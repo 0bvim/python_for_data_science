@@ -1,4 +1,3 @@
-import math
 from typing import Any, Callable
 
 
@@ -87,7 +86,7 @@ def print_std(data: list[Any], data_len: int) -> None:
         None
     """
     variance = calculate_variance(data, data_len)
-    print(f"std : {math.sqrt(variance)}")
+    print(f"std : {variance ** 0.5}")
 
 
 def print_var(data: list[Any], data_len: int) -> None:
