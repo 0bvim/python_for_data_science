@@ -1,3 +1,4 @@
+import math
 from typing import Any, Callable
 
 
@@ -16,11 +17,11 @@ def ft_statistics(*args: Any, **kwargs: Any) -> None:
             key indicates an identifier and the value specifies the
             statistical measure to compute. Accepted values for
             statistical measures are:
-            - "mean" for arithmetic mean,
-            - "median" for the median,
-            - "quartile" for interquartile range using percentiles,
-            - "std" for standard deviation,
-            - "var" for variance.
+            - "Mean" for arithmetic mean,
+            - "Median" for the median,
+            - "Quartile" for interquartile range using percentiles,
+            - "Std" for standard deviation,
+            - "Var" for variance.
 
     Returns:
         None: This function does not return any value but prints the
@@ -85,33 +86,50 @@ def print_std(data: list[Any], data_len: int) -> None:
     Returns:
         None
     """
-    mean_val = sum(data) / data_len
-    var_val = sum((x - mean_val) ** 2 for x in data) / data_len
-    std_val = var_val ** 0.5
-    print(f"std : {std_val}")
+    variance = calculate_variance(data, data_len)
+    print(f"std : {math.sqrt(variance)}")
 
 
 def print_var(data: list[Any], data_len: int) -> None:
     """
-    Calculates and prints the variance of a given dataset.
+    Prints the variance of the given data.
 
-    The function computes the variance of the data elements contained
-    in the provided list by first calculating the mean value and then
-    determining the square deviations from the mean. The variance is
-    printed to the console.
+    This function calculates the variance of a list of numeric data
+    and prints the result.
+    The calculation of the variance is done by the `calculate_variance`
+    function, which must be defined elsewhere in the code.
 
     Args:
-        data (list[Any]): A list of numerical data elements to
-            calculate the variance from.
-        data_len (int): The length of the dataset (must be equal to the
-            length of `data`).
+        data (list[Any]): A list of numeric values for which the variance will
+            be calculated.
+        data_len (int): The length of the data list provided as input.
 
     Returns:
         None
     """
+    print(f"var : {calculate_variance(data, data_len)}")
+
+
+def calculate_variance(data: list[Any], data_len: int) -> float:
+    """
+    Calculates the variance of a dataset.
+
+    Given a dataset and its length,
+    this function computes the variance by first
+    calculating the mean and then summing the squared differences between each
+    data point and the mean. The result is divided by the total number of data
+    points to compute variance.
+
+    Args:
+        data: List of numerical data points.
+        data_len: Integer representing the total number of data points in the
+            dataset.
+
+    Returns:
+        The calculated variance as a float.
+    """
     mean_val = sum(data) / data_len
-    var_val = sum((x - mean_val) ** 2 for x in data) / data_len
-    print(f"var : {var_val}")
+    return sum((x - mean_val) ** 2 for x in data) / data_len
 
 
 def print_quartile(get_percentile: Callable[..., float]) -> None:
@@ -155,7 +173,7 @@ def print_median(data: list[Any], data_len: int) -> None:
         None
     """
     if data_len % 2 == 0:
-        med = (data[data_len // 2 - 1] + data[data_len // 2])
+        med = data[data_len // 2 - 1] + data[data_len // 2]
     else:
         med = data[data_len // 2]
     print(f"median : {med}")
